@@ -5,3 +5,100 @@
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+
+<!--
+<li>{{ hero.name }}</li>
+{{hero.name}}插值表达式在 <li> 标签中显示组件的 hero.name 属性的值。
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+[hero]属性绑定把父组件 HeroListComponent 的 selectedHero 的值传到子组件 HeroDetailComponent 的 hero 属性中。
+
+<li (click)="selectHero(hero)"></li>
+当用户点击某个英雄的名字时，(click) 事件绑定会调用组件的 selectHero 方法。
+
+<input [(ngModel)]="hero.name">
+在双向绑定中，数据属性值通过属性绑定从组件流到输入框。用户的修改通过事件绑定流回组件，把属性值设置为最新的值。
+-->
+
+<!--
+从数据源到视图
+{{expression}}
+[target]="expression"
+bind-target="expression"
+
+从视图到数据源的单向绑定
+(target)="statement"
+on-target="statement"
+
+双向
+[(target)]="expression"
+bindon-target="expression"
+-->
+
+<!--
+属性
+  元素的 property
+  <img [src]="heroImageUrl">
+  组件的 property
+  <app-hero-detail [hero]="currentHero"></app-hero-detail>
+  指令的 property
+  <div [ngClass]="{'special': isSpecial}"></div>
+
+事件
+  元素的事件
+  <button (click)="onSave()">Save</button>
+  组件的事件
+  <app-hero-detail (deleteRequest)="deleteHero()"></app-hero-detail>
+  指令的事件
+  <div (myClick)="clicked=$event" clickable>click me</div>
+
+双向
+  事件与 property
+  <input [(ngModel)]="name">
+  <input [ngModel]="currentHero.name" (ngModelChange)="currentHero.name=$event">
+
+Attribute
+  attribute（例外情况）
+  <button [attr.aria-label]="help">help</button>
+
+CSS 类
+  class property
+  <div [class.special]="isSpecial">Special</div>
+  <div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
+
+样式
+  style property
+  <button [style.color]="isSpecial ? 'red' : 'green'">
+  <button [style.font-size.%]="!isSpecial ? 150 : 50" >Small</button>
+  <div [ngStyle]="currentStyles">weight, and extra large (24px).</div>
+
+内置结构型指令
+  <app-hero-detail *ngIf="isActive"></app-hero-detail>
+
+  <div *ngFor="let hero of heroes">{{hero.name}}</div>
+  <app-hero-detail *ngFor="let hero of heroes" [hero]="hero"></app-hero-detail>
+  <div *ngFor="let hero of heroes; let i=index">{{i + 1}} - {{hero.name}}</div>
+  // 带 trackBy 的 *ngFor
+  trackByHeroes(index: number, hero: Hero): number { return hero.id; }
+  <div *ngFor="let hero of heroes; trackBy: trackByHeroes">({{hero.id}}) {{hero.name}}</div>
+
+  <div [ngSwitch]="currentHero.emotion">
+    <app-happy-hero    *ngSwitchCase="'happy'"    [hero]="currentHero"></app-happy-hero>
+    <app-sad-hero      *ngSwitchCase="'sad'"      [hero]="currentHero"></app-sad-hero>
+    <app-confused-hero *ngSwitchCase="'confused'" [hero]="currentHero"></app-confused-hero>
+    <app-unknown-hero  *ngSwitchDefault           [hero]="currentHero"></app-unknown-hero>
+  </div>
+
+模板引用变量 ( #var )
+  // 使用井号 (#) 来声明引用变量。 #phone 的意思就是声明一个名叫 phone 的变量来引用 <input> 元素。
+  <input #phone placeholder="phone number">
+
+  //你可以在模板中的任何地方引用模板引用变量。 比如声明在 <input> 上的 phone 变量就是在模板另一侧的 <button> 上使用的。
+  <input #phone placeholder="phone number">
+  <button (click)="callPhone(phone.value)">Call</button>
+
+模板表达式操作符
+  | ?. !.
+
+类型转换函数 $any()
+-->
